@@ -11,12 +11,17 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   constructor(private UserService: UserService, private auth: AuthService, router: Router) {
     auth.user$.subscribe(user => {
-      if (user) {
-        UserService.save(user);
-        // tslint:disable-next-line:prefer-const
-        let returnUrl = localStorage.getItem('returnUrl');
-        router.navigateByUrl(returnUrl);
-      }
+      // tslint:disable-next-line:curly
+      if (!user) return;
+      UserService.save(user);
+      // tslint:disable-next-line:prefer-const
+      let returnUrl = localStorage.getItem('returnUrl');
+      // tslint:disable-next-line:curly
+      if (!returnUrl) return;
+
+      localStorage.removeItem('returnUrl');
+      router.navigateByUrl(returnUrl);
+
     });
   }
 }
