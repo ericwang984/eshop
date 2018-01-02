@@ -19,7 +19,7 @@ export class ProductFormComponent implements OnInit {
     private route: ActivatedRoute,
     private categoryService: CategoryService,
     private productService: ProductService) {
-    this.categories$ = categoryService.getCategories();
+    this.categories$ = categoryService.getAll();
 
     // tslint:disable-next-line:prefer-const
     this.id = this.route.snapshot.paramMap.get('id');
