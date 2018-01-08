@@ -1,4 +1,4 @@
-import { Product } from './../../models/product';
+import { Product } from '../../shared/models/product';
 import { ProductService } from './../../product.service';
 import { Component, OnInit } from '@angular/core';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';

@@ -1,4 +1,4 @@
-import { AppUser } from './models/app-user';
+import { AppUser } from './shared/models/app-user';
 import { UserService } from './user.service';
 import { CanActivate } from '@angular/router/src/interfaces';
 import { Injectable } from '@angular/core';
